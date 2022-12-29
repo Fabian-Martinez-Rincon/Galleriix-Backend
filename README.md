@@ -107,3 +107,16 @@ export default function Gallery( { images }: { images: Image[] }) {
   );
 }
 ```
+
+### Inserto todos los elementos de un json
+```javascript
+json.forEach(async (item) => {
+    await supabaseAdmin.from('images').insert([{
+      name: item.name,
+      href: item.url.publicUrl,
+      username: '@nomadiix',
+      imageSrc: item.url.publicUrl
+    }]);
+  });
+  
+```
